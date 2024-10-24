@@ -90,8 +90,6 @@ export default function FollowDropdown({
     (followingDataset ? 1 : 0) +
     (followingOrganization ? 1 : 0);
 
-  console.log(followingGeographies);
-
   return (
     <TooltipProvider delayDuration={100}>
       <DropdownMenu>
@@ -113,7 +111,10 @@ export default function FollowDropdown({
             )}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="follow-content w-56" align="end">
+        <DropdownMenuContent
+          className="follow-content max-h-[300px] w-56 overflow-auto"
+          align="end"
+        >
           <DropdownMenuCheckboxItem
             checked={followingDataset}
             onSelect={(event) => {
@@ -201,7 +202,7 @@ const DropdownGeoGroup = ({
           });
         }}
       >
-        <span className="font-semibold">{group.title}</span>
+        <span className="">{group.title}</span>
       </DropdownMenuCheckboxItem>
       {group.children.length > 0 && (
         <div>
